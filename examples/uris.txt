@@ -1,0 +1,6 @@
+GET/<param>
+GET/<param>/
+GET/example/<param>
+GET/example/<param>/
+GET/example/<param>/test
+GET/example/<param>/test/
