@@ -1,12 +1,12 @@
 # WSCodeGenerator
-This project generates a web server and code that handles a given set of URIs. 
+This project generates a web server and code that handles a given set of URIs.
 
 The code is generated from a URI file and a set of templates.  The URI file contains lines formatted like:
 > GET/example/\<param\>/test
 
-Each line is parsed into a regular expression, that is put into an STL map that maps a regex wrapper object to a generated function.  Unlike frameworks like [Flask](http://flask.pocoo.org/) where one function can handle multiple HTTP verbs, this code generates a seperate function for each GET/PUT/POST/DELETE specified for the same URI.
+Each line is parsed into a regular expression, that is put into an STL map that maps a regex wrapper object to a generated function. Variables are represented by the string literal __\<param\>__. Unlike frameworks like [Flask](http://flask.pocoo.org/), where one function can handle multiple HTTP verbs, this code generates a seperate function for each GET/PUT/POST/DELETE specified for the same URI.
 
-The templates contain three keys expected by ws_generator.py, __functions__, __function_prototypes__ and __urlMap__. The keys are specified in the templates using the syntax, for example, __%(urlMap)s__. These keys are populated by the ws_generator.py, which contains some template strings for each of the keys. The webserver is implemented using the [Poco](https://pocoproject.org/) libraries, but some other library could be used by changing the template strings in ws_generator.py and the corresponding code the template files.
+The templates contain three keys expected by ws_generator.py, __functions__, __function_prototypes__ and __urlMap__. The keys are specified in the templates using python syntax, for example, __%(urlMap)s__. These keys are populated by the ws_generator.py, which contains a template string for each of the keys. The webserver is implemented using the [Poco](https://pocoproject.org/) libraries, but some other library could be used by changing the template strings in ws_generator.py and the corresponding code the template files.
 
 ## System Requirements
 This code was developed on Ubuntu 16.04 using the following:
